@@ -1,0 +1,164 @@
+.wrapper {
+    margin: 0 auto;
+}
+.header {
+    margin-top: 10px;
+}
+
+/* TopBar Start */
+.topbar {
+    display: flex;
+    justify-content: space-around;
+}
+
+.socmedia-icon__telegram,
+.socmedia-icon__instagram,
+.phone-icon {
+    width: 25px;
+    height: 25px;
+}
+.socmedia-icon__instagram {
+    margin-left: 20px;
+}
+.our-phone {
+    display: flex;
+}
+.phone-icon {
+    margin-right: 20px;
+}
+.phone-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* TopBar End */
+
+/* Bottom bar Start */
+.bottom-bar {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+    background-color: #000000;
+}
+.logo img {
+    width: 90px;
+    height: 70px;
+}
+.search-form__body {
+    padding: 10px 300px 10px 0;
+}
+.search-form__body::placeholder {
+    padding-left: 20px;
+}
+.where-buy a {
+    color: #ffffff;
+    font-size: 25px;
+}
+/* Bottom bar End */
+
+/* Menu Start */
+.navbar {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #585858;
+    background-size: 100%;
+    height: 60px;
+}
+
+.menu-list {
+    position: relative;
+    padding: 20px 0;
+} 
+.menu-list a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.menu-list > a:hover {
+    color: #a19067;
+}
+
+.submenu {
+    background-color: #ffffff;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border: 1px black solid;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease 0s;
+    pointer-events: none;
+}
+.submenu-list {
+    padding: 10px 100px 10px 0px;
+}
+.submenu-list:hover {
+    background-color: #dbe9f4;
+}
+.submenu-list > a {
+    color: #000;
+    opacity: 0.6;
+}
+
+.menu-arrow {
+    display: none;
+}
+/* -------------------- */
+
+body._pc .menu-list:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+body._touch .menu-list {
+    display: flex;
+    align-items: center;
+}
+
+body._touch .menu-arrow {
+    display: block;
+    width: 0;
+    height: 0;
+    transition: all 0.3s ease 0s;
+    margin: 0 0 0 5px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid #ffffff;
+}
+
+body._touch .menu-list._active .submenu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+body._touch .menu-list._active .menu-arrow {
+    transform: rotate(-180deg);
+}
+/* -------------------- */
+
+/* Menu End */
+
+
+/* Slider Start */
+.main__slider {
+
+}
+.main__slider img  {
+    width: 100%;
+    height: 600px;
+}
+
+/* Slider End */
