@@ -1,4 +1,3 @@
-
 const isMobile = {
     Android: function () {
         return navigator.userAgent.match(/Andriod/i);
@@ -40,6 +39,16 @@ if (isMobile.any()) {
     document.body.classList.add('_pc')
 }
 
+const swiper = new Swiper('.image-slider', {
+    loop: true,
+    // If we need pagination
+    pagination: {
+        el: '.swiper-pagination',
+    },
 
-
-
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
