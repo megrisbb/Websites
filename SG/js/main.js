@@ -1,54 +1,44 @@
-const isMobile = {
-    Android: function () {
-        return navigator.userAgent.match(/Andriod/i);
-    },
-    BlackBerry: function () {
-        return navigator.userAgent.match(/BlackBerry/i);
-    },
-    iOS: function () {
-        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-    },
-    Opera: function () {
-        return navigator.userAgent.match(/Opera Mini/i);
-    },
-    Windows: function () {
-        return navigator.userAgent.match(/IEMobile/i);
-    },
-    any: function () {
-        return (
-            isMobile.Android() ||
-            isMobile.BlackBerry() ||
-            isMobile.iOS() ||
-            isMobile.Opera() ||
-            isMobile.Windows());
-    }
-};
+const menu = document.querySelector('.main__menu')
+const menuBtn = document.querySelector('.menu__burger')
 
-if (isMobile.any()) {
-    document.body.classList.add('_touch')
+const body = document.body
 
-    let menuArrows = document.querySelectorAll('.menu-arrow');
-    if (menuArrows.length > 0) {
-        for (const menuArrow of menuArrows) {
-            menuArrow.addEventListener("click", function (e) {
-                menuArrow.parentElement.classList.toggle('_active')
-            });
+if (menu && menuBtn) {
+    menuBtn.addEventListener('click', () =>{
+        menu.classList.toggle('active')
+        menuBtn.classList.toggle('active')
+        body.classList.toggle('lock')
+    })
+
+    menu.addEventListener('click', e => {
+        if (e.target.classList.contains('main__menu')) {
+            menu.classList.remove('active')
+            menuBtn.classList.remove('active')
+            body.classList.remove('lock')
         }
-    }
-} else {
-    document.body.classList.add('_pc')
+    })
+
+    menu.querySelectorAll('.menu__link').forEach(link => {
+        link.addEventListener('click', ()=> {
+            menu.classList.remove('active')
+            menuBtn.classList.remove('active')
+            body.classList.remove('lock')
+        })
+    })
 }
 
-const swiper = new Swiper('.image-slider', {
-    loop: true,
-    // If we need pagination
-    pagination: {
-        el: '.swiper-pagination',
-    },
+// -------------------
 
-    // Navigation arrows
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-});
+const anchors = document.querySelectorAll('a[href*="#"]');
+anchors.forEach(anchor => {
+    anchor.addEventListener('click', event => {
+        event.preventDefault();
+
+        const blockId = anchor.getAttribute('href').substring(1)
+
+        document.getElementById(blockId).scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        })
+    })
+})
